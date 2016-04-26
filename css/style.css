@@ -1,13 +1,59 @@
+body{
+    background: #E4E4E4;
+}
+
+a{
+    color: black;
+}
+
+
 .contentholder{
     width: 80%;
     margin: 0 auto;
-    padding-top: 10px;
+    margin-top: -80px;
+}
+
+.row{
     padding-bottom: 10px;
+    padding-top: 10px;    
     border: 1px solid black;
-    margin-top: 50px;
+    background: white;
 }
 
 .avatarholder img{
     width: 200px;
     height: 200px;
+    margin-left: -10px;
+}
+
+.backgroundholder{
+    width: 100%;
+    height: 200px;
+    overflow: hidden; 
+    position: relative;
+    z-index: -1;
+}
+
+.backgroundholder img{
+    width: 100%;
+}
+
+.contenttable td,th{
+    padding: 0px;
+    font-weight: normal;
+}
+
+#backgroundheader{
+    background: black;
+    color: white;
+    font-weight: bold;
+    width: 100px;
+    height: 30px;
+    margin-top: -10px; 
+    text-align: center;
+}
+
+#backgroundheader span{
+    vertical-align: middle;
+    display: inline-block;
 }
