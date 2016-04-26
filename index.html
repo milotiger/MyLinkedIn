@@ -1,96 +1,124 @@
 <!DOCTYPE html>
 <header>
-    <title>Nguyen Thanh Tri | LinkedIn</title>
-     <meta charset="utf-8">
+	<title>Nguyen Thanh Tri | LinkedIn</title>
+	 <meta charset="utf-8">
 		<!--Import Angularis-->
-    <script type="text/javascript" src="js/angular.min.js">
-    </script>
-    <script src="js/script.js"></script>
-    <!--Import Google Icon Font-->
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!--Import materialize.css-->
-    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+	<script type="text/javascript" src="js/angular.min.js">
+	</script>
+	<script src="js/script.js"></script>
+	<!--Import Google Icon Font-->
+	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+	<!--Let browser know website is optimized for mobile-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </header>
 
 <body>
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="js/materialize.min.js"></script>
-    <!--We start here-->
-    
-    <div class="backgroundholder">
-        <img src="images/cover.jpg" alt="Cover">
-    </div>
-    
-    <div class="contentholder">
-        <div class="basicinformation row">
-            <div class="avatarholder col s4">
-                <img src="images/ava.jpg" alt="Avatar">
-            </div>
-            <div class="informationholder col s8">
-                <h4 id="name">Nguyen Thanh Tri</h4>
-                <h5 id="headline">Student at VNUHCM - University of Science</h5>
-                <a href="#" id="country">Vietnam</a>
-                <a href="#">|</a>
-                <a href="#" id="Faculty">Information Technology and Services</a>
-                <table class="contenttable">
-                    <col width="10%">
-                    <tr>
-                        <th><a href="#" id="previous">Previous</a></th>
-                        <th><a href="#" id="previouscontent">SEA Guitar</a></th>
-                    </tr>
-                    <tr>
-                        <th><a href="#" id="education">Education</a></th>
-                        <th><a href="#" id="educationcontent">VNUHCM - University of Science</a></th>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <div class="backgroundcontent row">
-            <div id="backgroundheader"><span>Background</span></div>
-            <div class="list">
-                <ul class="collection">
-    <li class="collection-item avatar">
-      <i class="material-icons circle">list</i>
-      <span class="title">Summary</span>
-      <p>First Line <br>
-         Second Line
-      </p>
-    </li>
-    <li class="collection-item avatar">
-      <i class="material-icons circle">assignment_ind</i>
-      <span class="title">Experience</span>
-      <p>First Line <br>
-         Second Line
-      </p>
-    </li>
-    <li class="collection-item avatar">
-      <i class="material-icons circle">perm_contact_calendar</i>
-      <span class="title">Education</span>
-      <p>First Line <br>
-         Second Line
-      </p>
-    </li>
-    <li class="collection-item avatar">
-      <i class="material-icons circle">language</i>
-      <span class="title">Languages</span>
-      <p>First Line <br>
-         Second Line
-      </p>
-    </li>
-    <li class="collection-item avatar">
-      <i class="material-icons circle">dashboard</i>
-      <span class="title">Projects</span>
-      <p>First Line <br>
-         Second Line
-      </p>
-    </li>
-  </ul>
-            </div>
-        </div>
-    </div>
+	<!--We start here-->
+	
+	<div class="backgroundholder">
+		<img src="images/cover.jpg" alt="Cover">
+	</div>
+	
+	<div class="contentholder">
+		<div class="basicinformation row">
+			<div class="avatarholder col s4">
+				<img src="images/ava.jpg" alt="Avatar">
+			</div>
+			<div class="informationholder col s8">
+				<h4 id="name">Nguyen Thanh Tri</h4>
+				<h5 id="headline">Student at VNUHCM - University of Science</h5>
+				<a href="#" id="country">Vietnam</a>
+				<a href="#">|</a>
+				<a href="#" id="Faculty">Information Technology and Services</a>
+				<table class="contenttable">
+					<col width="10%">
+					<tr>
+						<th><a href="#" id="previous">Previous</a></th>
+						<th><a href="#" id="previouscontent">SEA Guitar</a></th>
+					</tr>
+					<tr>
+						<th><a href="#" id="education">Education</a></th>
+						<th><a href="#" id="educationcontent">VNUHCM - University of Science</a></th>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="backgroundcontent row">
+			<div id="backgroundheader"><span>Background</span></div>
+			<div class="list">
+				<ul class="collection">
+					<li class="collection-item avatar">
+						<i class="material-icons circle">list</i>
+						<span class="title">Summary</span>
+						<br>
+						<span id="summarydetail">good at self-study</span>
+					</li>
+						<li class="collection-item avatar">
+						<i class="material-icons circle">assignment_ind</i>
+						<span class="title">Experience</span>
+						<a href="#"><h6>Technical</h6></a>
+						<span>February 2015 – February 2016 (1 year 1 month)HCMC, Vietnam</span>
+						<br>
+						<span>Maintaining the system</span>
+					</li>
+					<li class="collection-item avatar">
+						<i class="material-icons circle">perm_contact_calendar</i>
+						<span class="title">Education</span>
+						<br>
+						<table>
+							<tr>
+								<td>
+									<a href="#">VNUHCM - University of Science</a>
+									<br>
+									<span>2013 – 2017</span>
+								</td>
+								<td style="text-align: right;">
+									<img src="images/uslogo.png" id="schoollogo" alt="US Logo">
+								</td>
+							</tr>
+						</table>
+						
+						<div id="projectdropdown">
+							<ul id="dropdown2" class="dropdown-content">
+								<li>
+									<h5>MagicNumS</h5>
+									<br>
+									<span>It is a small android game</span>
+								</li>
+							</ul>
+							<a class="btn dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons left">arrow_drop_down_circle</i>1 Project<i class="mdi-navigation-arrow-drop-down right"></i></a>
+						</div>
+					</li>
+					<li class="collection-item avatar">
+						<i class="material-icons circle">language</i>
+						<span class="title">Languages</span>
+						<ul>
+							<li>
+								<h5>English</h5>
+							</li>
+						</ul>
+					</li>
+						<li class="collection-item avatar">
+						<i class="material-icons circle">dashboard</i>
+						<span class="title">Projects</span>
+						<ul>
+							<li>
+								<h5>MagicNumS</h5>
+								<span>May 2015 – June 2015</span>
+								<br>
+								<span>It is a small android game</span>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </body>
