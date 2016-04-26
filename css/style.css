@@ -1,0 +1,13 @@
+.contentholder{
+    width: 80%;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 1px solid black;
+    margin-top: 50px;
+}
+
+.avatarholder img{
+    width: 200px;
+    height: 200px;
+}
