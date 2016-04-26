@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<header>
+<html>
+    <header>
 	<title>Nguyen Thanh Tri | LinkedIn</title>
 	 <meta charset="utf-8">
 		<!--Import Angularis-->
-	<script type="text/javascript" src="js/angular.min.js">
-	</script>
+	<script type="text/javascript" src="js/angular.js"></script>
+    <script type="text/javascript" src="js/angular-sanitize.js"></script>
+
 	<script src="js/script.js"></script>
 	<!--Import Google Icon Font-->
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -17,7 +19,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </header>
 
-<body>
+<body ng-app="linkedinapp">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="js/materialize.min.js"></script>
 	<!--We start here-->
@@ -27,25 +29,25 @@
 	</div>
 	
 	<div class="contentholder">
-		<div class="basicinformation row">
+		<div class="basicinformation row" ng-controller="overviewctrl">
 			<div class="avatarholder col s4">
-				<img src="images/ava.jpg" alt="Avatar">
+				<img ng-src={{overview.profile_picture}} alt="Avatar">
 			</div>
 			<div class="informationholder col s8">
-				<h4 id="name">Nguyen Thanh Tri</h4>
-				<h5 id="headline">Student at VNUHCM - University of Science</h5>
-				<a href="#" id="country">Vietnam</a>
+				<h4 id="name" data-ng-bind-html="overview.name">Nguyen Tri</h4>
+				<h5 id="headline" data-ng-bind-html="overview.headline">Student at VNUHCM - University of Science</h5>
+				<a href="#" id="country" data-ng-bind-html="overview.country">Vietnam</a>
 				<a href="#">|</a>
-				<a href="#" id="Faculty">Information Technology and Services</a>
+				<a href="#" id="Faculty" data-ng-bind-html="overview.faculty">Information Technology and Services</a>
 				<table class="contenttable">
 					<col width="10%">
 					<tr>
-						<th><a href="#" id="previous">Previous</a></th>
-						<th><a href="#" id="previouscontent">SEA Guitar</a></th>
+						<th><a href="#" id="previous" >Previous</a></th>
+						<th><a href="#" id="previouscontent" data-ng-bind-html="overview.previous">SEA Guitar</a></th>
 					</tr>
 					<tr>
 						<th><a href="#" id="education">Education</a></th>
-						<th><a href="#" id="educationcontent">VNUHCM - University of Science</a></th>
+						<th><a href="#" id="educationcontent" data-ng-bind-html="overview.education">VNUHCM - University of Science</a></th>
 					</tr>
 				</table>
 			</div>
@@ -122,3 +124,4 @@
 		</div>
 	</div>
 </body>
+</html>
