@@ -134,7 +134,8 @@
 							</li>
 						</ul>
 					</li>
-						<li class="collection-item avatar">
+                    
+					<li class="collection-item avatar">
 						<i class="material-icons circle">dashboard</i>
 						<span class="title">Projects</span>
 						<ul>
@@ -146,6 +147,21 @@
 							</li>
 						</ul>
 					</li>
+                    
+                    <li class="collection-item avatar">
+						<i class="material-icons circle">group</i>
+						<span class="title">Skills</span>
+						<ul>
+							<li ng-repeat="item in background.skills">
+								 <div class="chip">
+                                    <span class="chipindex">{{item.index}}</span>
+                                    {{item.name}}
+                                </div>
+                                <br>
+							</li>
+						</ul>
+					</li>
+                    
 				</ul>
 			</div>
 		</div>

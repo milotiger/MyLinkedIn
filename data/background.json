@@ -56,22 +56,37 @@
     
     "projects":[
         {
-            "name" : "Caro Online",
+            "name" : "MagicNumS",
             "from" : "May 2015",
             "to" : "June 2015",
-            "describe" : "A small console game"
+            "describe" : "A small android game"
+        },
+        {
+            "name" : "Caro Online",
+            "from" : "November 2015",
+            "to" : "December 2015",
+            "describe" : "A small carogame"
         },
         {
             "name" : "JobFinder",
             "from" : "November 2015",
             "to" : "December 2015",
             "describe" : "An android app helping people find their suitable jobs"
+        }
+    ],
+    
+    "skills":[
+        {
+            "index":"99",
+            "name":"C/C++"
         },
         {
-            "name" : "JobFinder",
-            "from" : "November 2015",
-            "to" : "December 2015",
-            "describe" : "An android app helping people find their suitable jobs"
+            "index":"99+",
+            "name":"C#"
+        },
+        {
+            "index":"98",
+            "name":"Java"
         }
     ]
 }

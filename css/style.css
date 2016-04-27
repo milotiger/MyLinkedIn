@@ -93,3 +93,7 @@ a{
     font-weight: normal;
     font-size: 10pt;   
 }
+
+.chipindex{
+    color: orangered !important;
+}
