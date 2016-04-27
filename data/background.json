@@ -1,0 +1,77 @@
+{
+    "summary":[
+        {
+            "item" : "Good at self-study"
+        },
+        {
+            "item" : "Handsome"
+        }
+    ],
+    
+    "experience":[
+        {
+            "role" : "Technical",
+            "company" : "SEA GUITAR",
+            "from" : "February 2015",
+            "to" : "February 2016",
+            "do" : "Maintaining the system",
+            "at" : "HCMC - Vietnam"
+        },
+        {
+            "role" : "Developer",
+            "company" : "Google",
+            "from" : "February 2017",
+            "to" : "February 2018",
+            "do" : "Coding",
+            "at" : "Silicon Valey - US"
+        }
+    ],
+    
+    "education":[
+        {
+            "school" : "Lap Vo 3 Highschool",
+            "from" : "September 2010",
+            "to" : "June 2013",
+            "logo" : "images/uslogo.png"
+        },
+        {
+            "school" : "VNUHCM - University of Science",
+            "from" : "September 2013",
+            "to" : "September 2017",
+            "logo" : "images/uslogo.png"
+        }
+    ],
+    
+    "languages":[
+        {
+            "name" : "English"
+        },
+        {
+            "name" : "Janpanese"
+        },
+        {
+            "name" : "Thai"
+        }
+    ],
+    
+    "projects":[
+        {
+            "name" : "Caro Online",
+            "from" : "May 2015",
+            "to" : "June 2015",
+            "describe" : "A small console game"
+        },
+        {
+            "name" : "JobFinder",
+            "from" : "November 2015",
+            "to" : "December 2015",
+            "describe" : "An android app helping people find their suitable jobs"
+        },
+        {
+            "name" : "JobFinder",
+            "from" : "November 2015",
+            "to" : "December 2015",
+            "describe" : "An android app helping people find their suitable jobs"
+        }
+    ]
+}

@@ -19,7 +19,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </header>
 
-<body ng-app="linkedinapp">
+<body ng-app="linkedinapp" ng-controller="maincontroller">
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 	<script type="text/javascript" src="js/materialize.min.js"></script>
 	<!--We start here-->
@@ -29,7 +29,7 @@
 	</div>
 	
 	<div class="contentholder">
-		<div class="basicinformation row" ng-controller="overviewctrl">
+		<div class="basicinformation row">
 			<div class="avatarholder col s4">
 				<img ng-src={{overview.profile_picture}} alt="Avatar">
 			</div>
@@ -52,6 +52,26 @@
 				</table>
 			</div>
 		</div>
+        
+        
+        
+        <div class="row contact" ng-hide="contactvisibility">
+                <span>Email:</span>
+                <a href="#" data-ng-bind-html="overview.email"></a>
+                <br>
+                <span>Phone: </span>
+                <a href="#" data-ng-bind-html="overview.phone"></a>
+        </div>
+        
+        <div class="row showcontact">
+                <div class="col s9 link">
+                    <a href="#" data-ng-bind-html="overview.link"></a>
+                </div>
+                <div class="col s3 button">
+                    <a class="waves-effect waves-light btn" ng-click="showhide()">Contact Info</a>
+                </div>
+        </div>
+            
 		<div class="backgroundcontent row">
 			<div id="backgroundheader"><span>Background</span></div>
 			<div class="list">
@@ -60,50 +80,57 @@
 						<i class="material-icons circle">list</i>
 						<span class="title">Summary</span>
 						<br>
-						<span id="summarydetail">good at self-study</span>
+                        <div ng-repeat="item in background.summary" class="summarydetail">
+                            <span >{{item.item}}</span>
+                            <br>
+                        </div>
+						
 					</li>
 						<li class="collection-item avatar">
 						<i class="material-icons circle">assignment_ind</i>
 						<span class="title">Experience</span>
-						<a href="#"><h6>Technical</h6></a>
-						<span>February 2015 – February 2016 (1 year 1 month)HCMC, Vietnam</span>
-						<br>
-						<span>Maintaining the system</span>
+                        <div class="expdetail" ng-repeat="item in background.experience">
+                            <br>
+                            <a href="#" class="itemtitle">{{item.role}}</a>
+                            <a href="#" class="subtilte"><h6>{{item.company}}</h6></a>
+                            <span class="date">{{item.from}} - {{item.to}} | {{item.at}}</span>
+                            <br>
+                            <span>{{item.do}}</span>
+                        
+                        </div>
 					</li>
 					<li class="collection-item avatar">
 						<i class="material-icons circle">perm_contact_calendar</i>
 						<span class="title">Education</span>
 						<br>
 						<table>
-							<tr>
+							<tr ng-repeat="item in background.education">
 								<td>
-									<a href="#">VNUHCM - University of Science</a>
+									<a href="#" class="itemtitle">{{item.school}}</a>
 									<br>
-									<span>2013 – 2017</span>
+									<span class="date">{{item.from}} - {{item.to}}</span>
 								</td>
 								<td style="text-align: right;">
-									<img src="images/uslogo.png" id="schoollogo" alt="US Logo">
+									<img ng-src="{{item.logo}}" id="schoollogo" alt="US Logo">
 								</td>
 							</tr>
 						</table>
 						
 						<div id="projectdropdown">
 							<ul id="dropdown2" class="dropdown-content">
-								<li>
-									<h5>MagicNumS</h5>
-									<br>
-									<span>It is a small android game</span>
+								<li ng-repeat="item in background.projects">
+									<h6 class="itemtitle">{{item.name}}</h6>
 								</li>
 							</ul>
-							<a class="btn dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons left">arrow_drop_down_circle</i>1 Project<i class="mdi-navigation-arrow-drop-down right"></i></a>
+							<a class="btn dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons left">arrow_drop_down_circle</i>{{background.projects.length}} Project<i class="mdi-navigation-arrow-drop-down right"></i></a>
 						</div>
 					</li>
 					<li class="collection-item avatar">
 						<i class="material-icons circle">language</i>
 						<span class="title">Languages</span>
 						<ul>
-							<li>
-								<h5>English</h5>
+							<li ng-repeat="item in background.languages">
+								<h5 class="itemtitle">{{item.name}}</h5>
 							</li>
 						</ul>
 					</li>
@@ -111,11 +138,11 @@
 						<i class="material-icons circle">dashboard</i>
 						<span class="title">Projects</span>
 						<ul>
-							<li>
-								<h5>MagicNumS</h5>
-								<span>May 2015 – June 2015</span>
+							<li ng-repeat="item in background.projects">
+								<h5 class="itemtitle">{{item.name}}</h5>
+								<span class="date">{{item.from}} - {{item.to}}</span>
 								<br>
-								<span>It is a small android game</span>
+								<span class="detail">{{item.describe}}</span>
 							</li>
 						</ul>
 					</li>
