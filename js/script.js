@@ -1,6 +1,6 @@
 /// <reference path="C:\Users\ADMIN\Dropbox\Tài Liệu\Năm III\HKII\LTWeb\Ref\js\_all.ts" />
 
-var app = angular.module('linkedinapp', ['ngSanitize']);
+var app = angular.module('linkedinapp', ['ngSanitize', 'ngAnimate']);
 
 app.controller('maincontroller', function ($scope, $http) {
     window.SC = $scope;
@@ -18,9 +18,7 @@ app.controller('maincontroller', function ($scope, $http) {
         });    
         
     $scope.contactvisibility = true;
-    
-    $scope.showhide = function showhide() {
-        $scope.contactvisibility = !$scope.contactvisibility;
-    }
+    $scope.overvieweditvisibility = false;
+   
 });
 

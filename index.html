@@ -29,7 +29,10 @@
 	</div>
 	
 	<div class="contentholder">
-		<div class="basicinformation row">
+		<div class="basicinformation row" data-ng-mouseover="overvieweditvisibility = true" data-ng-mouseleave="overvieweditvisibility = false">
+            <a href="#" class="editmode_basic editmode" ng-show="overvieweditvisibility">
+                <i class="material-icons">edit_mode</i>
+            </a>
 			<div class="avatarholder col s4">
 				<img ng-src={{overview.profile_picture}} alt="Avatar">
 			</div>
@@ -68,7 +71,7 @@
                     <a href="#" data-ng-bind-html="overview.link"></a>
                 </div>
                 <div class="col s3 button">
-                    <a class="waves-effect waves-light btn" ng-click="showhide()">Contact Info</a>
+                    <a class="waves-effect waves-light btn" ng-click="contactvisibility = !contactvisibility">Contact Info</a>
                 </div>
         </div>
             
