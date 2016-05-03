@@ -146,12 +146,14 @@
 			<div class="list">
 				<ul class="collection">
 					<li class="collection-item avatar" data-ng-mouseover="summaryeditvisibility = true" data-ng-mouseleave="summaryeditvisibility = false">
-						<i class="material-icons circle">list</i>
+						 <a  class="editmode_basic editmode topsticky modal-trigger" data-target="summary_add_dialog" ng-show="summaryeditvisibility" ng-click="$parent.current_item = $index">
+                            <i class="small material-icons">add_circle</i></a>
+                        <i class="material-icons circle">list</i>
 						<span class="title">Summary</span>
 						<br>
                         <div ng-repeat="item in background.summary" class="summarydetail" repeat-done="initModals()">
                             <span >{{item.item}}</span>
-                            <span> <a  class="editmode_basic editmode modal-trigger" data-target="summary_dialog" ng-show="summaryeditvisibility">
+                            <span> <a  class="editmode_basic editmode modal-trigger" data-target="summary_dialog" ng-show="summaryeditvisibility" ng-click="$parent.current_item = $index">
                             <i class="material-icons">edit_mode</i>
                             </a></span>
                             <br>
@@ -160,12 +162,33 @@
                         <div id="summary_dialog" class="modal">
                             <div class="modal-content">
                                 <h4>Summary Item Edit</h4>
-                                <p>{{current_item.item}}</p>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="{{background.summary[current_item].item}}" id="summaryitem" type="text" ng-model="item">
+                                        <label for="summaryitem">Item</label>
+                                    </div>
+                                </div>
                             </div>
                             <div class="modal-footer">
-                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="update_summary()">Done</a>
                             </div>
-                        </div>    
+                        </div> 
+                        <!--Summary Item Add-->
+                        <div id="summary_add_dialog" class="modal">
+                            <div class="modal-content">
+                                <h4>Add Summary Item</h4>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="Item" id="summaryitemadd" type="text" ng-model="item">
+                                        <label for="summaryitemadd">Item</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="add_summary()">Done</a>
+                            </div>
+                        </div> 
+                           
 					</li>
 						<li class="collection-item avatar">
 						<i class="material-icons circle">assignment_ind</i>

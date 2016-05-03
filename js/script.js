@@ -53,6 +53,21 @@ app.controller('maincontroller', function ($scope, $http) {
         $scope.new_overview = undefined;
     }
     
+    $scope.update_summary = function update_summary() {
+        if ($scope.item != undefined){
+             $scope.background.summary[$scope.current_item].item = $scope.item;
+        }
+    }
+    
+    $scope.add_summary = function update_summary() {
+        if ($scope.item != undefined){
+            var item = {item:$scope.item};
+             $scope.background.summary.splice(0,0,item);
+        }
+    }
+    
+    $scope.current_item = 0;
+    
     $scope.initModals = function() {
     $('.modal-trigger').leanModal(); // Initialize the modals
     }
