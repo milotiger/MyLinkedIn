@@ -3,10 +3,11 @@
     <header>
 	<title>Nguyen Thanh Tri | LinkedIn</title>
 	 <meta charset="utf-8">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<!--Import Angularis-->
 	<script type="text/javascript" src="js/angular.js"></script>
     <script type="text/javascript" src="js/angular-sanitize.js"></script>
-
+    
 	<script src="js/script.js"></script>
 	<!--Import Google Icon Font-->
 	<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -30,9 +31,74 @@
 	
 	<div class="contentholder">
 		<div class="basicinformation row" data-ng-mouseover="overvieweditvisibility = true" data-ng-mouseleave="overvieweditvisibility = false">
-            <a href="#" class="editmode_basic editmode" ng-show="overvieweditvisibility">
+            <a  class="editmode_basic editmode topsticky modal-trigger" data-target="overview_dialog" ng-show="overvieweditvisibility">
                 <i class="material-icons">edit_mode</i>
             </a>
+            
+            <!-- Dialog Structure -->
+            <div id="overview_dialog" class="modal modal-fixed-footer">
+                <div class="modal-content">
+                <h4>Overview information editor</h4>
+                <form action="" class="col s12 overview_form_edit">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder="{{overview.name}}" id="overview_name" type="text" ng-model="new_overview.name">
+                            <label for="overview_name">Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="{{overview.country}}" id="overview_country" type="text" ng-model="new_overview.country">
+                            <label for="overview_country">Homeland</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder="{{overview.headline}}" id="overview_headline" type="text" ng-model="new_overview.headline">
+                            <label for="overview_headline">Headline</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="{{overview.role}}" id="overview_role" type="text" ng-model="new_overview.role">
+                            <label for="overview_role">Role</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder="{{overview.previous}}" id="overview_previous" type="text" ng-model="new_overview.previous">
+                            <label for="overview_previous">Previous</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="{{overview.link}}" id="overview_link" type="text" ng-model="new_overview.link">
+                            <label for="overview_link">Your homepage</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder="{{overview.education}}" id="overview_education" type="text" ng-model="new_overview.education">
+                            <label for="overview_education">Education</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="{{overview.faculty}}" id="overview_faculty" type="text" ng-model="new_overview.faculty">
+                            <label for="overview_faculty">Faculty</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input placeholder="{{overview.email}}" id="overview_email" type="text" ng-model="new_overview.email">
+                            <label for="overview_email">email</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input placeholder="{{overview.phone}}" id="overview_phone" type="text" ng-model="new_overview.phone">
+                            <label for="overview_phone">phone</label>
+                        </div>
+                    </div>
+        
+                </form>
+                </div>
+                <div class="modal-footer">
+                    <a class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="update_overview()">Confirm</a>
+                    <a class=" modal-action modal-close waves-effect waves-green btn-flat">Cancel</a>
+                </div>
+            </div>
+            
 			<div class="avatarholder col s4">
 				<img ng-src={{overview.profile_picture}} alt="Avatar">
 			</div>
@@ -58,7 +124,7 @@
         
         
         
-        <div class="row contact" ng-hide="contactvisibility">
+        <div class="row contact" ng-hide="contactvisibility" ng-animate="'animate'">
                 <span>Email:</span>
                 <a href="#" data-ng-bind-html="overview.email"></a>
                 <br>
@@ -79,15 +145,27 @@
 			<div id="backgroundheader"><span>Background</span></div>
 			<div class="list">
 				<ul class="collection">
-					<li class="collection-item avatar">
+					<li class="collection-item avatar" data-ng-mouseover="summaryeditvisibility = true" data-ng-mouseleave="summaryeditvisibility = false">
 						<i class="material-icons circle">list</i>
 						<span class="title">Summary</span>
 						<br>
-                        <div ng-repeat="item in background.summary" class="summarydetail">
+                        <div ng-repeat="item in background.summary" class="summarydetail" repeat-done="initModals()">
                             <span >{{item.item}}</span>
+                            <span> <a  class="editmode_basic editmode modal-trigger" data-target="summary_dialog" ng-show="summaryeditvisibility">
+                            <i class="material-icons">edit_mode</i>
+                            </a></span>
                             <br>
                         </div>
-						
+						<!--Summary Dialog Define-->
+                        <div id="summary_dialog" class="modal">
+                            <div class="modal-content">
+                                <h4>Summary Item Edit</h4>
+                                <p>{{current_item.item}}</p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+                            </div>
+                        </div>    
 					</li>
 						<li class="collection-item avatar">
 						<i class="material-icons circle">assignment_ind</i>
@@ -169,5 +247,7 @@
 			</div>
 		</div>
 	</div>
+   
+    
 </body>
 </html>
