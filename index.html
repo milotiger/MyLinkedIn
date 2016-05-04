@@ -190,27 +190,125 @@
                         </div> 
                            
 					</li>
-						<li class="collection-item avatar">
-						<i class="material-icons circle">assignment_ind</i>
-						<span class="title">Experience</span>
-                        <div class="expdetail" ng-repeat="item in background.experience">
+                    
+                    <li class="collection-item avatar" ng-mouseover="experienceeditvisibility = true" ng-mouseleave="experienceeditvisibility = false">
+                        <i class="material-icons circle">assignment_ind</i>
+                        <span class="title">Experience</span>
+                         <span> <a  class="editmode_basic editmode modal-trigger topsticky" data-target="add_experience_dialog" ng-show="experienceeditvisibility" ng-click="$parent.current_item = $index">
+                            <i class="material-icons">add_circle</i>
+                            </a></span> 
+                        <div class="expdetail" ng-repeat="item in background.experience" repeat-done="initModals()">
                             <br>
                             <a href="#" class="itemtitle">{{item.role}}</a>
+                            
+                            <span> <a  class="editmode_basic editmode modal-trigger" data-target="experience_dialog" ng-show="experienceeditvisibility" ng-click="$parent.current_item = $index">
+                            <i class="material-icons">edit_mode</i>
+                            </a></span> 
+                            
                             <a href="#" class="subtilte"><h6>{{item.company}}</h6></a>
                             <span class="date">{{item.from}} - {{item.to}} | {{item.at}}</span>
                             <br>
                             <span>{{item.do}}</span>
-                        
                         </div>
+                        
+                        <!--Edit Experiment item Dialog-->
+                        <div id="experience_dialog" class="modal modal-fixed-footer">
+                            <div class="modal-content">
+                                <h4>experience Item Edit</h4>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="{{background.experience[current_item].role}}" id="exp-item-role" type="text" ng-model="exp.role">
+                                        <label for="exp-item-role">Role</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input placeholder="{{background.experience[current_item].company}}" id="exp-item-company" type="text" ng-model="exp.company">
+                                        <label for="exp-item-company">company</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="{{background.experience[current_item].from}}" id="exp-item-from" type="text" ng-model="exp.from">
+                                        <label for="exp-item-from">from</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input placeholder="{{background.experience[current_item].to}}" id="exp-item-to" type="text" ng-model="exp.to">
+                                        <label for="exp-item-to">to</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="{{background.experience[current_item].do}}" id="exp-item-do" type="text" ng-model="exp.do">
+                                        <label for="exp-item-do">do</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input placeholder="{{background.experience[current_item].at}}" id="exp-item-at" type="text" ng-model="exp.at">
+                                        <label for="exp-item-at">at</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="update_experience()">Done</a>
+                            </div>
+                        </div> 
+                        
+                          <!--Add Experiment item Dialog-->
+                        <div id="add_experience_dialog" class="modal modal-fixed-footer">
+                            <div class="modal-content">
+                                <h4>experience Item Add</h4>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="Role" id="exp-item-role" type="text" ng-model="exp.role">
+                                        <label for="exp-item-role">Role</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input placeholder="Company" id="exp-item-company" type="text" ng-model="exp.company">
+                                        <label for="exp-item-company">company</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="From" id="exp-item-from" type="text" ng-model="exp.from">
+                                        <label for="exp-item-from">from</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input placeholder="To" id="exp-item-to" type="text" ng-model="exp.to">
+                                        <label for="exp-item-to">to</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="Do" id="exp-item-do" type="text" ng-model="exp.do">
+                                        <label for="exp-item-do">do</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input placeholder="At" id="exp-item-at" type="text" ng-model="exp.at">
+                                        <label for="exp-item-at">at</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="add_experience()">Done</a>
+                            </div>
+                        </div> 
+                        
 					</li>
-					<li class="collection-item avatar">
+                    
+					<li class="collection-item avatar" ng-mouseover="educationeditvisibility = true" ng-mouseleave="educationeditvisibility = false">
 						<i class="material-icons circle">perm_contact_calendar</i>
 						<span class="title">Education</span>
+                        <a  class="editmode_basic editmode modal-trigger topsticky" data-target="add_education_dialog" ng-show="educationeditvisibility">
+                        <i class="material-icons">add_circle</i>
+                        </a>
 						<br>
 						<table>
-							<tr ng-repeat="item in background.education">
+							<tr ng-repeat="item in background.education" repeat-done="initModals()">
 								<td>
 									<a href="#" class="itemtitle">{{item.school}}</a>
+                                    
+                                    <span> <a  class="editmode_basic editmode modal-trigger" data-target="education_dialog" ng-show="educationeditvisibility" ng-click="$parent.current_item = $index">
+                                    <i class="material-icons">edit_mode</i>
+                                    </a></span> 
+                                    
 									<br>
 									<span class="date">{{item.from}} - {{item.to}}</span>
 								</td>
@@ -228,42 +326,214 @@
 							</ul>
 							<a class="btn dropdown-button" href="#!" data-activates="dropdown2"><i class="material-icons left">arrow_drop_down_circle</i>{{background.projects.length}} Project<i class="mdi-navigation-arrow-drop-down right"></i></a>
 						</div>
-					</li>
-					<li class="collection-item avatar">
-						<i class="material-icons circle">language</i>
-						<span class="title">Languages</span>
-						<ul>
-							<li ng-repeat="item in background.languages">
-								<h5 class="itemtitle">{{item.name}}</h5>
-							</li>
-						</ul>
+                        
+                        <!--Edit Education Item Dialog-->
+                        <div id="education_dialog" class="modal modal-fixed-footer">
+                            <div class="modal-content">
+                                <h4>education Item Edit</h4>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input placeholder="{{background.education[current_item].school}}" id="edu-item-school" type="text" ng-model="edu.school">
+                                        <label for="edu-item-school">school</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="{{background.education[current_item].from}}" id="edu-item-from" type="text" ng-model="edu.from">
+                                        <label for="edu-item-from">from</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input placeholder="{{background.education[current_item].to}}" id="edu-item-to" type="text" ng-model="edu.to">
+                                        <label for="edu-item-to">to</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="update_education()">Done</a>
+                            </div>
+                        </div> 
+                        
+                          <!--Edit Education Item Dialog-->
+                        <div id="add_education_dialog" class="modal modal-fixed-footer">
+                            <div class="modal-content">
+                                <h4>Education Item Add</h4>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input placeholder="School" id="edu-item-school" type="text" ng-model="edu.school">
+                                        <label for="edu-item-school">school</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="From" id="edu-item-from" type="text" ng-model="edu.from">
+                                        <label for="edu-item-from">from</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input placeholder="To" id="edu-item-to" type="text" ng-model="edu.to">
+                                        <label for="edu-item-to">to</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="add_education()">Done</a>
+                            </div>
+                        </div> 
+                        
 					</li>
                     
-					<li class="collection-item avatar">
+					<li class="collection-item avatar" ng-mouseover="projecteditvisibility = true" ng-mouseleave="projecteditvisibility = false">
 						<i class="material-icons circle">dashboard</i>
 						<span class="title">Projects</span>
+                        
+                        <a  class="editmode_basic editmode modal-trigger topsticky" data-target="add_project_dialog" ng-show="projecteditvisibility">
+                        <i class="material-icons">add_circle</i>
+                        </a>
+                        
 						<ul>
-							<li ng-repeat="item in background.projects">
-								<h5 class="itemtitle">{{item.name}}</h5>
+							<li ng-repeat="item in background.projects" repeat-done="initModals()">
+								<a class="itemtitle">{{item.name}}</a>
+                                
+                                <span> <a  class="editmode_basic editmode modal-trigger" data-target="project_dialog" ng-show="projecteditvisibility" ng-click="$parent.current_item = $index">
+                                <i class="material-icons">edit_mode</i>
+                                </a></span> 
+                                
+                                <br>
+                                
 								<span class="date">{{item.from}} - {{item.to}}</span>
 								<br>
 								<span class="detail">{{item.describe}}</span>
+                                <br>
 							</li>
 						</ul>
+                        
+                        <!--Update Project Item Dialog-->
+                        <div id="project_dialog" class="modal modal-fixed-footer">
+                            <div class="modal-content">
+                                <h4>projects Item Edit</h4>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input placeholder="{{background.projects[current_item].name}}" id="prj-item-name" type="text" ng-model="prj.name">
+                                        <label for="prj-item-name">name</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input placeholder="{{background.projects[current_item].describe}}" id="prj-item-describe" type="text" ng-model="prj.describe">
+                                        <label for="prj-item-describe">describe</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="{{background.projects[current_item].from}}" id="prj-item-from" type="text" ng-model="prj.from">
+                                        <label for="prj-item-from">from</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input placeholder="{{background.projects[current_item].to}}" id="prj-item-to" type="text" ng-model="prj.to">
+                                        <label for="prj-item-to">to</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="update_project()">Done</a>
+                            </div>
+                        </div> 
+                        
+                        <!--Add Project Item Dialog-->
+                        <div id="add_project_dialog" class="modal modal-fixed-footer">
+                            <div class="modal-content">
+                                <h4>projects Item Add</h4>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input placeholder="Name" id="prj-item-name" type="text" ng-model="prj.name">
+                                        <label for="prj-item-name">name</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input placeholder="Describe" id="prj-item-describe" type="text" ng-model="prj.describe">
+                                        <label for="prj-item-describe">describe</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="From" id="prj-item-from" type="text" ng-model="prj.from">
+                                        <label for="prj-item-from">from</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input placeholder="To" id="prj-item-to" type="text" ng-model="prj.to">
+                                        <label for="prj-item-to">to</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="add_project()">Done</a>
+                            </div>
+                        </div> 
+                        
 					</li>
                     
-                    <li class="collection-item avatar">
+                    <li class="collection-item avatar" ng-mouseover="skillseditvisibility = true" ng-mouseleave="skillseditvisibility =false">
 						<i class="material-icons circle">group</i>
 						<span class="title">Skills</span>
+                        
+                        <a  class="editmode_basic editmode modal-trigger topsticky" data-target="add_skills_dialog" ng-show="skillseditvisibility" ng-click="$parent.current_item = $index">
+                        <i class="material-icons">add_circle</i>
+                        </a>
+                        
 						<ul>
-							<li ng-repeat="item in background.skills">
+							<li ng-repeat="item in background.skills" repeat-done="initModals()">
 								 <div class="chip">
                                     <span class="chipindex">{{item.index}}</span>
                                     {{item.name}}
                                 </div>
+                                <span> <a  class="editmode_basic editmode modal-trigger" data-target="skills_dialog" ng-show="skillseditvisibility" ng-click="$parent.current_item = $index">
+                                <i class="material-icons">edit_mode</i>
+                                </a></span> 
                                 <br>
 							</li>
 						</ul>
+                        
+                        <!--Skills Item Edit-->
+                        <div id="skills_dialog" class="modal modal-fixed-footer">
+                            <div class="modal-content">
+                                <h4>Skills Item Edit</h4>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="{{background.skills[current_item].name}}" id="skills-item-name" type="text" ng-model="skills.name">
+                                        <label for="skills-item-name">name</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input placeholder="{{background.skills[current_item].index}}" id="skills-item-index" type="text" ng-model="skills.index">
+                                        <label for="skills-item-index">index</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="update_skills()">Done</a>
+                            </div>
+                        </div>
+                        
+                        <!--Skills Item Edit-->
+                        <div id="add_skills_dialog" class="modal modal-fixed-footer">
+                            <div class="modal-content">
+                                <h4>Skills Item Add</h4>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="Skills name" id="skills-item-name" type="text" ng-model="skills.name">
+                                        <label for="skills-item-name">name</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input placeholder="Index" id="skills-item-index" type="text" ng-model="skills.index">
+                                        <label for="skills-item-index">index</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat" ng-click="add_skills()">Done</a>
+                            </div>
+                        </div>
+                        
+                        
 					</li>
                     
 				</ul>
